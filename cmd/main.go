@@ -1,16 +1,23 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
+	"fmt"
+	"github.com/muti/pkg/setting"
+	"github.com/muti/routers"
+	"net/http"
 )
 
 func main() {
-	r := gin.Default()
+	r := routers.InitRouter()
 
-	r.GET("/", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"mssage": "hello world!",
-		})
-	})
-	r.Run(":8000")
+	s := &http.Server{
+		Addr:           fmt.Sprintf(":%d", setting.HTTPPort),
+		Handler:        r,
+		ReadTimeout:    setting.ReadTimeout,
+		WriteTimeout:   setting.WriteTimeout,
+		MaxHeaderBytes: 1 << 20,
+	}
+
+	s.ListenAndServe()
+
 }
