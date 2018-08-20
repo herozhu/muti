@@ -12,5 +12,5 @@ func main() {
 			"mssage": "hello world!",
 		})
 	})
-
+	r.Run(":8000")
 }
