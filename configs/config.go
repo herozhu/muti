@@ -1,6 +1,8 @@
 package configs
 
 import (
+	"github.com/go-ini/ini"
+	"log"
 	"time"
 )
 
@@ -56,3 +58,30 @@ type Redis struct {
 }
 
 var RedisConfig = &Redis{}
+
+var cfg *ini.File
+
+func Setup() {
+	var err error
+	cfg, err = ini.Load("configs/config.ini")
+	if err != nil {
+		log.Fatalf("Fail to parse 'configs/config.ini': %v", err)
+	}
+
+	mapTo("app", AppConfig)
+	mapTo("server", ServerConfig)
+	mapTo("database", DatabaseConfig)
+	mapTo("redis", RedisConfig)
+
+	AppConfig.ImageMaxSize = AppConfig.ImageMaxSize * 1024 * 1024
+	ServerConfig.ReadTimeout = ServerConfig.ReadTimeout * time.Second
+	ServerConfig.WriteTimeout = ServerConfig.ReadTimeout * time.Second
+	RedisConfig.IdleTimeout = RedisConfig.IdleTimeout * time.Second
+}
+
+func mapTo(section string, v interface{}) {
+	err := cfg.Section(section).MapTo(v)
+	if err != nil {
+		log.Fatalf("Cfg.MapTo RedisSetting err: %v", err)
+	}
+}

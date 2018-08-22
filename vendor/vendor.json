@@ -57,6 +57,24 @@
 			"revisionTime": "2018-08-06T06:07:27Z"
 		},
 		{
+			"checksumSHA1": "gvVIWTNc9DiHnN2MqSnzINnn9b0=",
+			"path": "github.com/lestrrat-go/file-rotatelogs",
+			"revision": "00616292e7713245e4988c7d3a7aae395665e49f",
+			"revisionTime": "2018-06-07T09:44:57Z"
+		},
+		{
+			"checksumSHA1": "DH2N/Hqw0uxTh5jHlT7KKaAoKtA=",
+			"path": "github.com/lestrrat-go/file-rotatelogs/internal/option",
+			"revision": "00616292e7713245e4988c7d3a7aae395665e49f",
+			"revisionTime": "2018-06-07T09:44:57Z"
+		},
+		{
+			"checksumSHA1": "OkHorrv7ef+Bp4hfBTIOQoZb+OU=",
+			"path": "github.com/lestrrat-go/strftime",
+			"revision": "8b31f9c59b0feb56c456ce49a7b3d2b2e93a6f18",
+			"revisionTime": "2018-08-21T11:37:35Z"
+		},
+		{
 			"checksumSHA1": "kum8izZy1+pVfDiApW5hT2HoH1w=",
 			"path": "github.com/mattn/go-isatty",
 			"revision": "6ca4dbf54d38eea1a992b3c722a76a5d1c4cb25c",
@@ -75,10 +93,32 @@
 			"revisionTime": "2018-07-18T01:23:57Z"
 		},
 		{
+			"checksumSHA1": "d6BycwPpKXW09I/tXMqcItE8SA4=",
+			"path": "github.com/pkg/errors",
+			"revision": "816c9085562cd7ee03e7f8188a1cfd942858cded",
+			"revisionTime": "2018-03-11T21:45:15Z"
+		},
+		{
+			"checksumSHA1": "Ex8BNuG+GV7MJPr/DuEH7yLP6C0=",
+			"path": "github.com/rifflock/lfshook",
+			"revision": "62f5e0662816a462697d29f396fd19376d17f65b",
+			"revisionTime": "2018-03-13T18:34:24Z"
+		},
+		{
+			"checksumSHA1": "qHvpabDFyMF+xd3FHszn/KREh/4=",
+			"path": "github.com/sirupsen/logrus",
+			"revision": "fc587f31c804fe6853cd90f0d8d90af588eca5bd",
+			"revisionTime": "2018-08-17T01:25:29Z"
+		},
+		{
 			"checksumSHA1": "Ef6istEK0gHoRzGpowUThS79YZk=",
 			"path": "github.com/ugorji/go/codec",
 			"revision": "00b869d2f4a5e27445c2d916fa106fc72c106d4c",
 			"revisionTime": "2018-08-13T09:23:08Z"
+		},
+		{
+			"path": "golang.org/x/crypto/ssh/terminal",
+			"revision": ""
 		},
 		{
 			"path": "golang.org/x/sys/unix",
