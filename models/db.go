@@ -1,23 +1,33 @@
 package models
 
 import (
+	"github.com/sirupsen/logrus"
 	"gopkg.in/mgo.v2"
-	"log"
+)
+
+const (
+	host             = "127.0.0.1:27017"
+	source           = "muti"
+	user             = "mutiai"
+	pass             = "mutiai91"
+	CollectionPrefix = "muti_"
 )
 
 var globalS *mgo.Session
 
-const (
-	host   = "127.0.0.1:27017"
-	source = "admin"
-	user   = "user"
-	pass   = "123456"
-)
+func InitData() {
+	dialInfo := &mgo.DialInfo{
+		Addrs:    []string{host},
+		Source:   source,
+		Username: user,
+		Password: pass,
+	}
 
-func init() {
-	s, err := mgo.Dial(host)
+	s, err := mgo.DialWithInfo(dialInfo)
 	if err != nil {
-		log.Fatalf("Create Session: %s\n", err)
+		logrus.Fatalf("Create Session: %s\n", err)
+	} else {
+		logrus.Infoln("Mongodb commit successful!")
 	}
 	globalS = s
 }
@@ -25,10 +35,9 @@ func init() {
 //每一次操作都copy一份 Session,避免每次创建Session,导致连接数量超过设置的最大值
 //获取文档对象 c := Session.DB(db).C(collection)
 func connect(db, collection string) (*mgo.Session, *mgo.Collection) {
-	ms := globalS.Copy()
-	c := ms.DB(db).C(collection)
-	ms.SetMode(mgo.Monotonic, true)
-	return ms, c
+	s := globalS.Copy()
+	c := s.DB(db).C(collection)
+	return s, c
 }
 
 //插入操作

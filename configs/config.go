@@ -30,16 +30,17 @@ type App struct {
 var AppConfig = &App{}
 
 type Server struct {
-	RunMode      string `ini:"RunMode"`
-	HttpPort     int    `ini:"HttpPort"`
-	ReadTimeout  string `ini:"ReadTimeout"`
-	WriteTimeout string `ini:"WriteTimeout"`
+	RunMode      string        `ini:"RunMode"`
+	HttpPort     int           `ini:"HttpPort"`
+	ReadTimeout  time.Duration `ini:"ReadTimeout"`
+	WriteTimeout time.Duration `ini:"WriteTimeout"`
 }
 
 var ServerConfig = &Server{}
 
 type Database struct {
 	Type        string `ini:"Type"`
+	Source      string `ini:"Source"`
 	User        string `ini:"User"`
 	PassWord    string `ini:"PassWord"`
 	Host        string `ini:"Host"`
@@ -61,11 +62,11 @@ var RedisConfig = &Redis{}
 
 var cfg *ini.File
 
-func Setup() {
+func InitConf() {
 	var err error
-	cfg, err = ini.Load("configs/config.ini")
+	cfg, err = ini.Load("./configs/config.ini")
 	if err != nil {
-		log.Fatalf("Fail to parse 'configs/config.ini': %v", err)
+		log.Fatalf("Fail to parse './configs/config.ini': %v", err)
 	}
 
 	mapTo("app", AppConfig)

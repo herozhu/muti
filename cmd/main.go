@@ -1,23 +1,21 @@
 package main
 
 import (
-	"fmt"
-	"github.com/muti/pkg/setting"
-	"github.com/muti/routers"
-	"net/http"
+	"github.com/muti/configs"
+	"github.com/muti/models"
+	"github.com/muti/pkg/logging"
+	"github.com/sirupsen/logrus"
 )
 
 func main() {
-	r := routers.InitRouter()
-
-	s := &http.Server{
-		Addr:           fmt.Sprintf(":%d", setting.HTTPPort),
-		Handler:        r,
-		ReadTimeout:    setting.ReadTimeout,
-		WriteTimeout:   setting.WriteTimeout,
-		MaxHeaderBytes: 1 << 20,
-	}
-
-	s.ListenAndServe()
+	configs.InitConf()
+	logging.InitLog()
+	models.InitData()
+	logrus.Debug("Useful debugging information.")
+	logrus.Info("Something noteworthy happened!")
+	logrus.Warn("You should probably take a look at this.")
+	logrus.Error("Something failed but I'm not quitting.")
+	logrus.Fatal("Bye.")         //log之后会调用os.Exit(1)
+	logrus.Panic("I'm bailing.") //log之后会panic()
 
 }

@@ -11,7 +11,7 @@ type Tag struct {
 }
 
 const (
-	db         = "Tags"
+	db         = "muti"
 	collection = "TagModel"
 )
 
@@ -21,4 +21,5 @@ func (t *Tag) InsertTag(tag Tag) error {
 
 func (t *Tag) FindAllTags(tag Tag) error {
 	return FindAll(db, collection, nil, nil, tag)
+
 }
