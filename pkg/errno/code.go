@@ -1,6 +1,7 @@
-package e
+package errno
 
-const (
+var (
+	// Common errors
 	StatusContinue           = 100
 	StatusSwitchingProtocols = 101
 	StatusProcessing         = 102

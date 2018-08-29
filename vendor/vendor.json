@@ -105,6 +105,10 @@
 			"revisionTime": "2018-08-14T21:14:27Z"
 		},
 		{
+			"path": "github.com/golang/text",
+			"revision": ""
+		},
+		{
 			"checksumSHA1": "35UiDOE3TlLfiuF+EFu5HB2dGF8=",
 			"path": "github.com/hashicorp/hcl",
 			"revision": "ef8a98b0bbce4a65b5aa4c368430a80ddc533168",
@@ -277,6 +281,12 @@
 			"path": "github.com/spf13/pflag",
 			"revision": "d929dcbb10863323c436af3cf76cb16a6dfc9b29",
 			"revisionTime": "2018-08-21T11:45:17Z"
+		},
+		{
+			"checksumSHA1": "9SLWV+2lPH4/LfxgnKVrgIJ1h7g=",
+			"path": "github.com/spf13/viper",
+			"revision": "05116ad639474f7858b82b48004bfbdb4c51e367",
+			"revisionTime": "2018-08-28T08:34:36Z"
 		},
 		{
 			"checksumSHA1": "Ef6istEK0gHoRzGpowUThS79YZk=",

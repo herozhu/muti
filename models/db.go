@@ -2,25 +2,18 @@ package models
 
 import (
 	"github.com/sirupsen/logrus"
+	"github.com/spf13/viper"
 	"gopkg.in/mgo.v2"
-)
-
-const (
-	host             = "127.0.0.1:27017"
-	source           = "muti"
-	user             = "mutiai"
-	pass             = "mutiai91"
-	CollectionPrefix = "muti_"
 )
 
 var globalS *mgo.Session
 
 func InitData() {
 	dialInfo := &mgo.DialInfo{
-		Addrs:    []string{host},
-		Source:   source,
-		Username: user,
-		Password: pass,
+		Addrs:    []string{viper.GetString("database.DBHost")},
+		Source:   viper.GetString("database.Source"),
+		Username: viper.GetString("database.User"),
+		Password: viper.GetString("database.DBPass"),
 	}
 
 	s, err := mgo.DialWithInfo(dialInfo)
