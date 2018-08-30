@@ -35,3 +35,26 @@ func (err *Err) Addf(format string, args ...interface{}) error {
 func (err *Err) Error() string {
 	return fmt.Sprintf("Err - code: %d, message: %s, error : %s", err.Code, err.Message, err)
 }
+
+func IsErrUserNotFound(err error) bool {
+	code, _ := DecodeErr(err)
+	return code == Err_User_Not_Found.Code
+}
+
+func DecodeErr(err error) (int, string) {
+	if err == nil {
+		return OK.Code, OK.Message
+	}
+
+	switch typed := err.(type) {
+	case *Err:
+		return typed.Code, typed.Message
+	case *Errno:
+		return typed.Code, typed.Message
+	default:
+
+	}
+
+	return InternalServerError.Code, err.Error()
+
+}
