@@ -31,8 +31,8 @@ server:
 
 database:
   Type: mongo
-  Source: mutii
-  User: mutiaii
+  Source: mu_ti
+  User: mutiai
   DBPass: mutiai91
   DBHost: 127.0.0.1:27017
   CollectionPrefix: muti_
