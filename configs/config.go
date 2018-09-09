@@ -127,6 +127,6 @@ func (c *Config) watchConfig() {
 //func mapTo(section string, v interface{}) {
 //	err := cfg.Section(section).MapTo(v)
 //	if err != nil {
-//		log.Fatalf("Cfg.MapTo RedisSetting err: %v", err)
+//		logs.Fatalf("Cfg.MapTo RedisSetting err: %v", err)
 //	}
 //}

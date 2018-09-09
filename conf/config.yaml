@@ -13,10 +13,10 @@ app:
   ExportSavePath: assets/export/
   QrCodeSavePath: assets/qrcode/
   FontSavePath: assets/fonts/
-  #log
+  #logs
   LogSavePath: logs/
-  LogSaveName: log
-  LogFileExt: log
+  LogSaveName: logs
+  LogFileExt: logs
   MaxAge: 7 * 24
   RotationTime: 24
   TimeFormat: 2006-01-02T15:04:05.000
@@ -32,8 +32,8 @@ server:
 database:
   Type: mongo
   Source: mu_ti
-  User: mutiai
-  DBPass: mutiai91
+  User: mu_ti
+  DBPass: mu_ti910217
   DBHost: 127.0.0.1:27017
   CollectionPrefix: muti_
 
