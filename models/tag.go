@@ -6,7 +6,7 @@ import (
 
 type Tags struct {
 	Id         bson.ObjectId `bson:"_id" json:"id"`
-	Name       string        `bson:"name" json:"name"`
+	Name       string        `bson:"name" json:"name" validate:"required"`
 	CreatedBy  string        `bson:"createdBy" json:"created_by"`
 	ModifiedBy string        `bson:"modifiedBy" json:"modified_by"`
 	State      int           `bson:"state" json:"state"`
@@ -14,7 +14,7 @@ type Tags struct {
 
 const (
 	db         = "mu_ti"
-	collection = "mu_Tag"
+	collection = "mu_ti_tag"
 )
 
 func (t *Tags) InsertTag(tag Tags) error {

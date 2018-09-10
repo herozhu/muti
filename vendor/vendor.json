@@ -9,6 +9,12 @@
 			"revisionTime": "2018-06-17T00:39:50Z"
 		},
 		{
+			"checksumSHA1": "8+EC2b9eiL2pslfTUQwby+kA5aY=",
+			"path": "github.com/astaxie/beego/validation",
+			"revision": "053a075344c118a5cc41981b29ef612bb53d20ca",
+			"revisionTime": "2018-07-31T13:18:48Z"
+		},
+		{
 			"checksumSHA1": "7NP1qUMF8Kx1y0zANxx0e+oq9Oo=",
 			"path": "github.com/fsnotify/fsnotify",
 			"revision": "ccc981bf80385c528a65fbfdd49bf2d8da22aa23",
@@ -61,6 +67,24 @@
 			"path": "github.com/go-ini/ini",
 			"revision": "5cf292cae48347c2490ac1a58fe36735fb78df7e",
 			"revisionTime": "2018-08-18T11:46:59Z"
+		},
+		{
+			"checksumSHA1": "NsLphrlxGA/Ao+hIbk8qsZtXhT4=",
+			"path": "github.com/go-playground/locales",
+			"revision": "f63010822830b6fe52288ee52d5a1151088ce039",
+			"revisionTime": "2018-03-23T16:04:04Z"
+		},
+		{
+			"checksumSHA1": "6xgFcEYVu7ZWVUeK7Q3gPLJ8h4s=",
+			"path": "github.com/go-playground/locales/currency",
+			"revision": "f63010822830b6fe52288ee52d5a1151088ce039",
+			"revisionTime": "2018-03-23T16:04:04Z"
+		},
+		{
+			"checksumSHA1": "hplgY2pZFLa3jQpcSs9wTfjkk88=",
+			"path": "github.com/go-playground/universal-translator",
+			"revision": "71201497bace774495daed26a3874fd339e0b538",
+			"revisionTime": "2017-03-27T19:17:03Z"
 		},
 		{
 			"checksumSHA1": "Eh1ocAOG8hLwQHjghshDItgxr+Y=",
@@ -315,10 +339,10 @@
 			"revision": ""
 		},
 		{
-			"checksumSHA1": "q190bL03wQok3wVwYmMub2XhOiU=",
-			"path": "gopkg.in/go-playground/validator.v8",
-			"revision": "5f1438d3fca68893a817e4a66806cea46a9e4ebf",
-			"revisionTime": "2017-07-30T05:02:35Z"
+			"checksumSHA1": "n2zqXQJm5633blJmlEbvzrIx9OY=",
+			"path": "gopkg.in/go-playground/validator.v9",
+			"revision": "e69e9a28bb62b977fdc58d051f1bb477b7cbe486",
+			"revisionTime": "2018-08-13T14:34:31Z"
 		},
 		{
 			"checksumSHA1": "QS15F7XdFG6tSDF3LfAZJTEgbK8=",
