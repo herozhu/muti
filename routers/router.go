@@ -13,6 +13,7 @@ func InitRouter() *gin.Engine {
 
 	{
 		ApiV1.GET("/user", v1.GetUser)
+		ApiV1.GET("/tags", v1.GetTag)
 
 	}
 

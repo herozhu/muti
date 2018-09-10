@@ -2,37 +2,36 @@ package v1
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/gin-gonic/gin/json"
 	"github.com/muti/models"
+	"github.com/muti/pkg/app"
 	"github.com/muti/pkg/errno"
-	"gopkg.in/go-playground/validator.v9"
+	"gopkg.in/mgo.v2/bson"
 	"net/http"
 )
 
 var (
-	dao      = models.Tags{}
-	validate *validator.Validate
+	dao = models.Tags{}
 )
 
-func responseWithJson(w http.ResponseWriter, code int, payload interface{}) {
-	response, _ := json.Marshal(payload)
-	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(code)
-	w.Write(response)
-}
-
-func GetTags(w http.ResponseWriter, r http.Request) {
+func GetTags(c *gin.Context) (r http.Response) {
 	defer r.Body.Close()
+	appG := app.Gin{C: c}
 	var tags []models.Tags
 	tags, err := dao.FindAllTags()
 	if err != nil {
-		responseWithJson(w, http.StatusOK, errno.ERROR_GET_TAGS_FAIL)
+		appG.Response(http.StatusOK, errno.ERROR_GET_TAGS_FAIL, nil)
 		return
 	}
-	responseWithJson(w, http.StatusOK, tags)
-
+	appG.Response(http.StatusOK, errno.SUCCESS, tags)
+	return
 }
 
 func GetTag(c *gin.Context) {
-
+	id := bson.ObjectId.String("_id")
+	appG := app.Gin{C: c}
+	result, err := dao.FindTagById(id)
+	if err != nil {
+		appG.Response(http.StatusOK, errno.ERROR_NOT_EXIST_TAG, nil)
+	}
+	appG.Response(http.StatusOK, errno.SUCCESS, result)
 }
