@@ -9,3 +9,8 @@ time="2018-09-10T02:23:48.356" level=info msg="Something noteworthy happened!"
 time="2018-09-10T02:23:48.357" level=warning msg="You should probably take a look at this."
 time="2018-09-10T02:23:48.357" level=error msg="Something failed but I'm not quitting."
 time="2018-09-10T02:23:48.357" level=fatal msg=Bye.
+time="2018-09-10T11:11:46.946" level=info msg="Mongodb commit successful!"
+time="2018-09-10T11:11:46.971" level=info msg="Something noteworthy happened!"
+time="2018-09-10T11:11:46.971" level=warning msg="You should probably take a look at this."
+time="2018-09-10T11:11:46.971" level=error msg="Something failed but I'm not quitting."
+time="2018-09-10T11:11:46.971" level=fatal msg=Bye.
