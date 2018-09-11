@@ -31,10 +31,12 @@ server:
 
 database:
   Type: mongo
-  Source: mu_ti
-  User: mu_ti
-  DBPass: mu_ti910217
   DBHost: 127.0.0.1:27017
+  AuthDb: mu_ti
+  AuthUser: mu_ti
+  AuthPass: mu_ti910217
+  TimeOut: 60 * time.Second
+  PoolLimit: 4096
   CollectionPrefix: muti_
 
 redis:
