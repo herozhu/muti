@@ -105,28 +105,3 @@ func (c *Config) watchConfig() {
 		log.Printf("Config file changed: %s", e.Name)
 	})
 }
-
-//func InitConf() {
-//	var err error
-//	cfg, err = ini.Load("./configs/config.yaml")
-//	if err != nil {
-//		logrus.Fatalf("Fail to parse './config.yaml': %v", err)
-//	}
-//
-//	mapTo("app", AppConfig)
-//	mapTo("server", ServerConfig)
-//	mapTo("database", DatabaseConfig)
-//	mapTo("redis", RedisConfig)
-//
-//	AppConfig.ImageMaxSize = AppConfig.ImageMaxSize * 1024 * 1024
-//	ServerConfig.ReadTimeout = ServerConfig.ReadTimeout * time.Second
-//	ServerConfig.WriteTimeout = ServerConfig.ReadTimeout * time.Second
-//	RedisConfig.IdleTimeout = RedisConfig.IdleTimeout * time.Second
-//}
-//
-//func mapTo(section string, v interface{}) {
-//	err := cfg.Section(section).MapTo(v)
-//	if err != nil {
-//		logs.Fatalf("Cfg.MapTo RedisSetting err: %v", err)
-//	}
-//}

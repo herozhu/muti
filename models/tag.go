@@ -1,42 +1,93 @@
 package models
 
-import (
-	"gopkg.in/mgo.v2/bson"
+import "github.com/jinzhu/gorm"
+
+type Tag struct {
+	Model
+
+	Name       string `json:"name"`
+	CreatedBy  string `json:"created_by"`
+	ModifiedBy string `json:"modified_by"`
+	State      int    `json:"state"`
+}
+
+var (
+	//切换本地数据库连接时使用
+	//db = GetSelfDB()
+	db = GetDockerDB()
 )
 
-type Tags struct {
-	Id         bson.ObjectId `bson:"_id" json:"id"`
-	Name       string        `bson:"name" json:"name" validate:"required"`
-	CreatedBy  string        `bson:"createdBy" json:"created_by"`
-	ModifiedBy string        `bson:"modifiedBy" json:"modified_by"`
-	State      int           `bson:"state" json:"state"`
+func GetTags(pageNum, pageSize int, maps interface{}) (tags []Tag) {
+	//用于本地数据库和docker数据库切换
+	//DB.Self.Where(maps).Offset(pageNum).Limit(pageSize).Find(&tags)
+	DB.docker.Where(maps).Offset(pageNum).Limit(pageSize).Find(&tags)
+	return
 }
 
-const (
-	db         = "mu_ti"
-	collection = "mu_ti_tag"
-)
-
-func (t *Tags) InsertTag(tag Tags) error {
-	return Insert(db, collection, tag)
+func GetTagTotal(maps interface{}) (count int) {
+	//用于本地数据库和docker数据库切换
+	//DB.Self.Model(&Tag{}).Where(maps).Count(&count)
+	DB.docker.Model(&Tag{}).Where(maps).Count(&count)
+	return
 }
 
-func (t *Tags) FindAllTags() ([]Tags, error) {
-	var result []Tags
-	err := FindAll(db, collection, nil, nil, &result)
-	return result, err
+func ExistTagByName(name string) (bool, error) {
+	var tag Tag
+	err := db.Select("id").Where("name = ? AND deleted_on = ? ", name, 0).First(&tag).Error
+	if err != nil && err != gorm.ErrRecordNotFound {
+		return false, err
+
+	}
+	if tag.ID > 0 {
+		return true, nil
+	}
+
+	return false, nil
 }
 
-func (t *Tags) FindTagById(id string) (Tags, error) {
-	var result Tags
-	err := FindOne(db, collection, bson.M{"_id": bson.ObjectIdHex(id)}, nil, &result)
-	return result, err
+func ExistTagByID(id int) (bool, error) {
+	var tag Tag
+	err := db.Select("id").Where("id = ? AND deleted_on = ? ", id, 0).First(&tag).Error
+	if err != nil && err != gorm.ErrRecordNotFound {
+		return false, err
+	}
+	if tag.ID > 0 {
+		return true, nil
+	}
+
+	return false, nil
 }
 
-func (t *Tags) UpdateTag(tag Tags) error {
-	return Update(db, collection, bson.M{"_id": tag.Id}, tag)
+func CreateTag(name string, state int, createdBy string) error {
+	tag := Tag{
+		Name:      name,
+		State:     state,
+		CreatedBy: createdBy,
+	}
+	if err := db.Create(&tag).Error; err != nil {
+		return err
+	}
+
+	return nil
 }
 
-func (t *Tags) RemoveTag(id string) error {
-	return Remove(db, collection, bson.M{"_id": bson.ObjectIdHex(id)})
+func DeleteTag(id int) error {
+	if err := db.Where("id = ? ", id).Delete(&Tag{}).Error; err != nil {
+		return err
+	}
+	return nil
+}
+
+func EditTag(id int, data interface{}) error {
+	if err := db.Model(&Tag{}).Where("id = ? AND deleted_on = ?", id, 0).Update(data).Error; err != nil {
+		return err
+	}
+	return nil
+}
+
+func CleanAllTag() (bool, error) {
+	if err := db.Unscoped().Where("deleted_on = ?", 0).Delete(&Tag{}).Error; err != nil {
+		return false, err
+	}
+	return true, nil
 }

@@ -1,47 +1,57 @@
 app:
-  PageSize: 10
-  JwtSecret: 233
-  PrefixUrl: http://127.0.0.1:8000
+  pagesize: 10
+  jwtsecret: 233
+  prefixurl: http://127.0.0.1:8000
 
-  RuntimeRootPath: cmd/runtime/
+  runtimerootpath: cmd/runtime/
 
-  ImageSavePath: upload/images/
-  # MB
-  ImageMaxSize: 5
-  ImageAllowExts: .jpg,.jpeg,.png
+  imagesavepath: upload/images/
+  # mb
+  imagemaxsize: 5
+  imageallowexts: .jpg,.jpeg,.png
 
-  ExportSavePath: assets/export/
-  QrCodeSavePath: assets/qrcode/
-  FontSavePath: assets/fonts/
+  exportsavepath: assets/export/
+  qrcodesavepath: assets/qrcode/
+  fontsavepath: assets/fonts/
   #logs
-  LogSavePath: logs/
-  LogSaveName: logs
-  LogFileExt: logs
-  MaxAge: 7 * 24
-  RotationTime: 24
-  TimeFormat: 2006-01-02T15:04:05.000
+  logsavepath: logs/
+  logsavename: logs
+  logfileext: logs
+  maxage: 7 * 24
+  rotationtime: 24
+  timeformat: 2006-01-02t15:04:05.000
 
 server:
   #debug or release
-  RunMode: debug
-  Name: apiserver
-  HttpPort: 8000
-  ReadTimeout: 60
-  WriteTimeout: 60
+  runmode: debug
+  name: apiserver
+  port: 8000
+  readtimeout: 60
+  writetimeout: 60
 
-database:
-  Type: mongo
-  DBHost: 127.0.0.1:27017
-  AuthDb: mu_ti
-  AuthUser: mu_ti
-  AuthPass: mu_ti910217
-  TimeOut: 60 * time.Second
-  PoolLimit: 4096
-  CollectionPrefix: muti_
+db:
+  type: mysql
+  host: 127.0.0.1:3306
+  name: muti
+  username: root
+  password: root
+  timeout: 60 * time.second
+  poollimit: 4096
+  tableprefix: mt_
+
+docker_db:
+  type: mysql
+  host: 127.0.0.1:3306
+  name: muti
+  username: root
+  password: root
+  timeout: 60 * time.second
+  poollimit: 4096
+  tableprefix: mt_
 
 redis:
-  RedisHost: 127.0.0.1:6379
-  RedisPass:
-  MaxIdle: 30
-  MaxActive: 30
-  IdleTimeout: 200
+  redishost: 127.0.0.1:6379
+  redispass:
+  maxidle: 30
+  maxactive: 30
+  idletimeout: 200

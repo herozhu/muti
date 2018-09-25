@@ -87,6 +87,12 @@
 			"revisionTime": "2017-03-27T19:17:03Z"
 		},
 		{
+			"checksumSHA1": "STAarB5oxgU6GY66b/7+9HPrtiI=",
+			"path": "github.com/go-sql-driver/mysql",
+			"revision": "99ff426eb706cffe92ff3d058e168b278cabf7c7",
+			"revisionTime": "2018-07-19T07:19:42Z"
+		},
+		{
 			"checksumSHA1": "Eh1ocAOG8hLwQHjghshDItgxr+Y=",
 			"path": "github.com/gogap/config",
 			"revision": "a1522129698c2ffaf1089351ad23156a1208ed09",
@@ -191,6 +197,24 @@
 			"path": "github.com/hashicorp/hcl/json/token",
 			"revision": "65a6292f0157eff210d03ed1bf6c59b190b8b906",
 			"revisionTime": "2018-09-06T18:38:39Z"
+		},
+		{
+			"checksumSHA1": "qaQCNzcryTODq36tlUYJWCnZmUA=",
+			"path": "github.com/jinzhu/gorm",
+			"revision": "f6260a00852946a10a57e8bb9f505f19bc9389b7",
+			"revisionTime": "2018-09-22T11:59:11Z"
+		},
+		{
+			"checksumSHA1": "w5/naAzcG0+g6aYx63/of1Wbgqw=",
+			"path": "github.com/jinzhu/gorm/dialects/mysql",
+			"revision": "f6260a00852946a10a57e8bb9f505f19bc9389b7",
+			"revisionTime": "2018-09-22T11:59:11Z"
+		},
+		{
+			"checksumSHA1": "mfb/EusMwfajCPq0lwLWM/pvqI4=",
+			"path": "github.com/jinzhu/inflection",
+			"revision": "04140366298a54a039076d798123ffa108fff46c",
+			"revisionTime": "2018-03-08T03:36:59Z"
 		},
 		{
 			"checksumSHA1": "DdVb2staqPb8lhY1mIlRSgENKAc=",
@@ -339,22 +363,20 @@
 			"revision": ""
 		},
 		{
+			"path": "google.golang.org/appengine/cloudsql",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "q190bL03wQok3wVwYmMub2XhOiU=",
+			"path": "gopkg.in/go-playground/validator.v8",
+			"revision": "5f1438d3fca68893a817e4a66806cea46a9e4ebf",
+			"revisionTime": "2017-07-30T05:02:35Z"
+		},
+		{
 			"checksumSHA1": "n2zqXQJm5633blJmlEbvzrIx9OY=",
 			"path": "gopkg.in/go-playground/validator.v9",
 			"revision": "e69e9a28bb62b977fdc58d051f1bb477b7cbe486",
 			"revisionTime": "2018-08-13T14:34:31Z"
-		},
-		{
-			"checksumSHA1": "QS15F7XdFG6tSDF3LfAZJTEgbK8=",
-			"path": "gopkg.in/mgo.v2",
-			"revision": "9856a29383ce1c59f308dd1cf0363a79b5bef6b5",
-			"revisionTime": "2018-07-05T11:36:04Z"
-		},
-		{
-			"checksumSHA1": "Np/IH5aN4KNgY+8MBEYV2ewgExI=",
-			"path": "gopkg.in/mgo.v2/bson",
-			"revision": "9856a29383ce1c59f308dd1cf0363a79b5bef6b5",
-			"revisionTime": "2018-07-05T11:36:04Z"
 		},
 		{
 			"checksumSHA1": "9tMleZvl/yjpkj7oO3pOfZc+MJw=",

@@ -3,7 +3,7 @@ package main
 import (
 	"github.com/muti/configs"
 	"github.com/muti/models"
-	"github.com/sirupsen/logrus"
+	"github.com/muti/routers"
 	"github.com/spf13/pflag"
 )
 
@@ -18,10 +18,9 @@ func main() {
 		panic(err)
 	}
 
-	models.InitData()
-	logrus.Info("Something noteworthy happened!")
-	logrus.Warn("You should probably take a look at this.")
-	logrus.Error("Something failed but I'm not quitting.")
-	logrus.Fatal("Bye.")         //log之后会调用os.Exit(1)
-	logrus.Panic("I'm bailing.") //log之后会panic()
+	models.DB.Init()
+	defer models.DB.Close()
+
+	routers.InitRouter()
+
 }

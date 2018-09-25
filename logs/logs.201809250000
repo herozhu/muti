@@ -1,0 +1,2 @@
+time="2018-09-25T10:21:45.869" level=info msg="Mongodb commit successful!"
+time="2018-09-25t15:37:30.896" level=error msg="Database connection failed. Database name: sql: unknown driver \"mysql\" (forgotten import?)%!(EXTRA string=root)"

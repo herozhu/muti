@@ -7,16 +7,26 @@ import (
 
 //初始化路由
 func InitRouter() *gin.Engine {
-	r := gin.New()
+	r := gin.Default()
 
-	ApiV1 := r.Group("/api/v1")
+	t := r.Group("/api/v1/tags")
 
 	{
-		ApiV1.GET("/user", v1.GetUser)
-		ApiV1.GET("/tags", v1.GetTag)
+		t.GET("", v1.GetTags)
 
 	}
 
-	return r
+	a := r.Group("/api/v1/articles")
+	{
+		a.GET("")
+	}
 
+	r.GET("/ping", func(c *gin.Context) {
+		c.JSON(200, gin.H{
+			"message": "pong",
+		})
+	})
+
+	r.Run()
+	return r
 }
